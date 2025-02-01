@@ -56,8 +56,8 @@ export default function Hero({}) {
     "Ahmedabad",
     "Surat",
     "Amritsar",
-"Bhopal",
-"Haridwar",
+    "Bhopal",
+    "Haridwar",
     "Noida",
     "Vijayawada",
     "Agra",
@@ -128,7 +128,11 @@ export default function Hero({}) {
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3 md:gap-6 text-black font-medium text-sm md:text-base">
                       {otherCities.map((item, index) => {
                         return (
-                          <Link key={index} href="/" className="block hover:scale-125 transition-all ease-in-out duration-200 ">
+                          <Link
+                            key={index}
+                            href="/"
+                            className="block hover:scale-125 transition-all ease-in-out duration-200 "
+                          >
                             {item}
                           </Link>
                         );
