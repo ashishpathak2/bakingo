@@ -9,7 +9,6 @@ import Link from "next/link";
 import { FaRoute } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
-import Image from "next/image";
 
 export default function Home() {
   const [showMenu, setShowMenu] = useState<boolean>(false);
