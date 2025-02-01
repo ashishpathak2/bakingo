@@ -57,7 +57,10 @@ export default function Home() {
 
       <div className="w-dvh h-dvh">
   <picture>
-    <source media="(min-width: 768px)" srcSet="/desktop.jpg" />
+    <source media="(min-width: 1024px)" srcSet="/desktop.jpg" />
+    
+    <source media="(min-width: 768px) and (max-width: 1023px)" srcSet="/tablet.avif" />
+    
     <img
       className="w-full h-full"
       src="/mobile.jpg"
@@ -66,6 +69,7 @@ export default function Home() {
     />
   </picture>
 </div>
+
 
 
       <Categories />
