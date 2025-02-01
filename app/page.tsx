@@ -4,7 +4,6 @@ import Hero from "../components/Hero";
 import Categories from "../components/Categories";
 import BestSeller from "../components/BestSeller";
 import { fonts } from "@/components/Fonts";
-import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { FaRoute } from "react-icons/fa";
@@ -56,24 +55,18 @@ export default function Home() {
         </div>
       </div>
 
-      <div className=" w-dvh h-dvh ">
-        <Image
-          className="w-full h-full hidden md:block"
-          width={1000}
-          height={1000}
-          src="/desktop.jpg"
-          alt=""
-        />
-        <Image
-          className="w-dvw md:hidden"
-          width={1000}
-          height={1000}
-          src="/mobile.jpg"
-          loading="eager"
-          priority
-          alt=""
-        />
-      </div>
+      <div className="w-dvh h-dvh">
+  <picture>
+    <source media="(min-width: 768px)" srcSet="/desktop.jpg" />
+    <img
+      className="w-full h-full"
+      src="/mobile.jpg"
+      alt=""
+      loading="lazy"
+    />
+  </picture>
+</div>
+
 
       <Categories />
       <BestSeller />

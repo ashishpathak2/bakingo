@@ -10,7 +10,6 @@ import { FaGoogle } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { SiGmail } from "react-icons/si";
 import { CiUser } from "react-icons/ci";
-// import { IoCloseOutline } from "react-icons/io5";
 
 import {
   Dialog,
@@ -45,10 +44,12 @@ export default function Header({ handleMenu }) {
 
           <div className="flex-shrink-0">
             <Link href="/" className="inline-block" aria-label="Bakingo - Home">
-              <img
-                src="https://bkmedia.bakingo.com/ssr-static/bakingo.svg"
+              <Image
+                src="/bakingo.svg"
                 alt="Bakingo logo"
-                className="w-26 md:w-auto"
+                width={100}
+                height={100}
+                className="md:w-auto md:h-auto" // Allow auto resizing on larger screens
               />
             </Link>
           </div>

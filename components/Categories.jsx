@@ -1,21 +1,22 @@
 import { fonts } from "@/components/Fonts";
+import Image from "next/image";
 
 export default function Categories() {
   const allCategories = [
     {
-      image: "https://bkmedia.bakingo.com/theme_cake_9.jpg?tr=w-484,q-70",
+      image: "/category1.webp",
       name: "Regular Cakes",
     },
     {
-      image: "https://bkmedia.bakingo.com/gourmet_cake_0.jpg?tr=w-484,q-70",
+      image: "/category2.webp",
       name: "Gourmet Cakes",
     },
     {
-      image: "https://bkmedia.bakingo.com/photo_cake_desktop.jpg?tr=w-484,q-70",
+      image: "/category3.webp",
       name: "Photo Cakes",
     },
     {
-      image: "https://bkmedia.bakingo.com/theme_cake_9.jpg?tr=w-484,q-70",
+      image: "/category4.webp",
       name: "Theme Cakes",
     },
   ];
@@ -35,8 +36,10 @@ export default function Categories() {
           >
             <div className="pt-1 pr-1 rounded-2xl bg-orange-200 rotate-6">
               <div className="pt-1 pr-1 rounded-2xl bg-orange-300/90 -rotate-3">
-                <img
+                <Image
                   className="-rotate-3 rounded-2xl transition-all ease-in-out duration-500 hover:scale-105"
+                  width={500}
+                  height={500}
                   src={item.image}
                   alt={`Image of ${item.name}`}
                   loading="lazy"
