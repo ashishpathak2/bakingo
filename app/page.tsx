@@ -1,5 +1,5 @@
 "use client";
-import Header from "../components/Header";
+import Header from "../components/Header.jsx";
 import Hero from "../components/Hero";
 import Categories from "../components/Categories";
 import BestSeller from "../components/BestSeller";
@@ -12,14 +12,14 @@ import { BsCart4 } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 
 export default function Home() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
   const handleMenu = () => {
     setShowMenu(!showMenu);
   };
 
   return (
     <div className={`${fonts.className} `}>
-      <Header handleMenu={handleMenu} showMenu={showMenu} />
+      <Header handleMenu={handleMenu}/>
       <Hero />
 
       <div

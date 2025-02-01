@@ -10,7 +10,7 @@ import { FaGoogle } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { SiGmail } from "react-icons/si";
 import { CiUser } from "react-icons/ci";
-import { IoCloseOutline } from "react-icons/io5";
+// import { IoCloseOutline } from "react-icons/io5";
 
 import {
   Dialog,
@@ -159,7 +159,7 @@ export default function Header({ handleMenu }) {
                           className="hover:scale-110 hover:opacity-100 transition-all ease-in-out duration-300 bg-black p-2 rounded-xl"
                           href={"/"}
                         >
-                          <FaGoogle size={25} fill="white"/>
+                          <FaGoogle size={25} fill="white" />
                         </Link>
                         <Link
                           className="hover:scale-110 hover:opacity-100 transition-all ease-in-out duration-300  bg-black  p-2 rounded-xl"
