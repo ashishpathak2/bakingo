@@ -26,12 +26,12 @@ export default function Hero({}) {
   ];
 
   const cities = [
-    { image: "/Delhi.webp", name: "Delhi" },
-    { image: "/Gurgaon.webp", name: "Gurgaon" },
-    { image: "/Noida.webp", name: "Noida" },
-    { image: "/Bangalore.webp", name: "Bangalore" },
-    { image: "/Hyderabad.webp", name: "Hyderabad" },
-    { image: "/Mumbai.webp", name: "Mumbai" },
+    { image: "/delhi.webp", name: "Delhi" },
+    { image: "/gurgaon.webp", name: "Gurgaon" },
+    { image: "/noida.webp", name: "Noida" },
+    { image: "/bangalore.webp", name: "Bangalore" },
+    { image: "/hyderabad.webp", name: "Hyderabad" },
+    { image: "/mumbai.webp", name: "Mumbai" },
   ];
 
   const otherCities = [
