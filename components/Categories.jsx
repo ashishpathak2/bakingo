@@ -21,29 +21,32 @@ export default function Categories() {
   ];
 
   return (
-    <div className=" w-full md:w-5/6  m-auto py-5 ">
-      <h4
-        className={`pb-5 pt-5 md:pt-12 md:pb-6 text-center lg:text-start text-xl md:text-4xl font-semibold text-red-800  ${fonts.className} `}
+    <section className="w-full md:w-5/6 m-auto py-5">
+      <h3
+        className={`pb-3 pt-5 md:pt-12 md:pb-6 text-center lg:text-start text-xl md:text-4xl font-semibold text-red-800 ${fonts.className}`}
       >
         Order Our Best Bakery Options
-      </h4>
-      <div className="flex flex-wrap justify-center  md:items-start gap-x-6 md:gap-x-0 md:justify-evenly ">
-        {allCategories.map((item,index) => {
-          return (
-            <div key={index} className="text-center  w-40 md:w-64 flex flex-col md:gap-3 gap-2 md:py-5 py-3">
-              <div className=" pt-1 pr-1 rounded-2xl bg-orange-200 rotate-6">
-                <div className=" pt-1 pr-1  rounded-2xl bg-orange-300/90 -rotate-3">
-              <img className="-rotate-3  rounded-2xl  transition-all ease-in-out duration-500 hover:scale-105 "  src={item.image} alt="" />
+      </h3>
+      <div className="flex flex-wrap justify-center w-full gap-x-5 sm:gap-x-12 sm:justify-normal">
+        {allCategories.map((item, index) => (
+          <div
+            key={index}
+            className="text-center w-40 md:w-64 flex flex-col md:gap-3 gap-2 md:py-5 py-3"
+          >
+            <div className="pt-1 pr-1 rounded-2xl bg-orange-200 rotate-6">
+              <div className="pt-1 pr-1 rounded-2xl bg-orange-300/90 -rotate-3">
+                <img
+                  className="-rotate-3 rounded-2xl transition-all ease-in-out duration-500 hover:scale-105"
+                  src={item.image}
+                  alt={`Image of ${item.name}`}
+                  loading="lazy"
+                />
               </div>
-              </div>
-            <span className="font-medium text-xl "> {item.name} </span>
             </div>
-          )
-          
-        })}
+            <span className="font-semibold text-xl">{item.name}</span>
+          </div>
+        ))}
       </div>
-
-      <div></div>
-    </div>
+    </section>
   );
 }
