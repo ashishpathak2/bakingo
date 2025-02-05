@@ -5,63 +5,57 @@ import Categories from "../components/Categories";
 import BestSeller from "../components/BestSeller";
 import { fonts } from "@/components/Fonts";
 import { useState } from "react";
-import Link from "next/link";
 import { FaRoute } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
+import Link from "next/link";
 
 export default function Home() {
-  const [showMenu, setShowMenu] = useState<boolean>(false);
-  const handleMenu = () => {
-    setShowMenu(!showMenu);
-  };
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => setShowMenu((prev) => !prev);
 
   return (
-    <div className={`${fonts.className } overflow-hidden `}>
-      <Header handleMenu={handleMenu} />
+    <div className={`${fonts.className} overflow-hidden`}>
+      <Header onMenuToggle={toggleMenu} />
+
       <Hero />
+      <Categories />
+      <BestSeller />
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 flex flex-col gap-6 px-9 pt-12 bg-white h-screen w-screen z-50 ease-in-out duration-500 transition-transform ${
+        className={`fixed top-0 left-0 flex flex-col gap-6 px-9 pt-12 bg-white h-screen w-screen z-50 transform transition-transform duration-500 ease-in-out ${
           showMenu ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex justify-between items-center">
           <span className="font-bold text-lg">Menu</span>
-          <button className="lg:hidden" onClick={handleMenu}>
+          <button
+            onClick={toggleMenu}
+            className="lg:hidden"
+            aria-label="Close menu"
+          >
             <IoCloseOutline size={26} />
           </button>
         </div>
         <div className="flex flex-col gap-5">
           <Link
-            className="flex items-center gap-2 text-base md:text-lg font-semibold whitespace-nowrap"
             href="/order"
+            className="flex items-center gap-2 text-base md:text-lg font-semibold whitespace-nowrap"
           >
             <FaRoute />
             Track Order
           </Link>
           <Link
-            className="flex items-center gap-2 text-base md:text-lg font-semibold whitespace-nowrap"
             href="/cart"
+            className="flex items-center gap-2 text-base md:text-lg font-semibold whitespace-nowrap"
           >
             <BsCart4 />
             Cart
           </Link>
         </div>
       </div>
-
-      {/* Responsive Image Section */}
-      <div className="w-screen h-screen">
-        <picture>
-          <source media="(min-width: 1024px)" srcSet="/desktop.jpg" />
-          <source media="(min-width: 768px) and (max-width: 1023px)" srcSet="/tablet.avif" />
-          <img className="w-full h-full object-cover" src="/mobile.jpg" alt="Background" loading="lazy" />
-        </picture>
-      </div>
-
-      <Categories />
-      <BestSeller />
     </div>
   );
 }

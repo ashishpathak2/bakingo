@@ -15,7 +15,6 @@ export default function Categories() {
         Order Our Best Bakery Options
       </h3>
       
-      {/* Grid Layout for Better Responsiveness */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-x-8 sm:gap-y-6 justify-center w-full">
         {allCategories.map((item, index) => (
           <div key={index} className="text-center flex flex-col gap-2 md:gap-3 py-3 md:py-5 items-center">
