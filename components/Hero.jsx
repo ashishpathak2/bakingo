@@ -1,5 +1,4 @@
 "use client";
-import { useMemo } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FaLocationDot } from "react-icons/fa6";
 import { fonts } from "@/components/Fonts";
@@ -66,10 +65,9 @@ export default function Hero() {
   ];
 
   return (
-    <main className="relative flex flex-col items-center w-full min-h-screen overflow-hidden bg-[#fff3d3]">
+    <main className="relative flex flex-col items-center w-full min-h-screen overflow-hidden  bg-[#fff3d3]">
       {/* Background Images */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -translate-y-1/2 opacity-80 top-[60%] md:top-3/4 left-[-10%] w-[80%] sm:w-[60%] md:w-1/3">
+        <div className="absolute -translate-y-1/2 top-[60%] md:top-1/2 rotate-2 left-[-8%] w-[80%] sm:w-[60%] md:w-1/3">
           <ProgressiveImage
             src="/cake.png"
             placeholder="/placeholder-image1.png"
@@ -79,7 +77,7 @@ export default function Hero() {
             className="w-full h-auto"
           />
         </div>
-        <div className="absolute -translate-y-1/2 opacity-80 top-[30%] md:top-1/2 right-[-10%] w-[80%] sm:w-[60%] md:w-1/3">
+        <div className="absolute -translate-y-1/2  top-[30%] md:top-1/2 right-[-15%] w-[80%] sm:w-[60%] md:w-1/3">
           <ProgressiveImage
             src="/cake3.png"
             placeholder="/placeholder-image2.png"
@@ -89,7 +87,6 @@ export default function Hero() {
             className="w-full h-auto"
           />
         </div>
-      </div>
 
       {/* Main Content */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 w-full max-w-5xl  md:pt-32 text-center ">
@@ -150,7 +147,7 @@ export default function Hero() {
             </DialogContent>
           </Dialog>
 
-          <div className="flex items-center w-full px-3 py-1 bg-white rounded-lg sm:mt-0 sm:w-2/3">
+          <div className="flex items-center w-full h px-3 py-2 bg-white rounded-lg sm:mt-0 sm:w-2/3">
             <CiSearch size={20} className="text-gray-500" />
             <input
               type="text"
@@ -176,13 +173,14 @@ export default function Hero() {
         </div>
 
         {/* Category Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 w-full sm:max-w-full md:max-w-6xl lg:max-w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 w-full sm:max-w-full md:max-w-6xl lg:max-w-full ">
           <CategoryCards
             title="Cakes"
             subTitle="Sweet Delights"
             offer="20"
             link="/"
             image="/cake5.png"
+            placeholderImg={"/placeholder-image3.png"}
           />
           <CategoryCards
             title="Desserts"
@@ -190,6 +188,7 @@ export default function Hero() {
             offer="5"
             link="/"
             image="/cake6.png"
+            placeholderImg={"/placeholder-image4.png"}
           />
           <CategoryCards
             title="Gifts"
@@ -197,6 +196,7 @@ export default function Hero() {
             offer="15"
             link="/"
             image="/cake7.png"
+            placeholderImg={"/placeholder-image5.png"}
           />
           <CategoryCards
             title="More"
@@ -204,6 +204,8 @@ export default function Hero() {
             offer="16"
             link="/"
             image="/cake8.png"
+            placeholderImg={"/placeholder-image6.png"}
+
           />
         </div>
       </div>
