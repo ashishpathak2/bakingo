@@ -1,170 +1,95 @@
 "use client";
-import { CiSearch } from "react-icons/ci";
-import { FaLocationDot } from "react-icons/fa6";
-import { fonts } from "@/components/Fonts";
 import Link from "next/link";
-import Image from "next/image";
 import CategoryCards from "@/components/CategoryCards";
 import ProgressiveImage from "@/components/ProgressiveImage";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { SearchInput } from "@/components/SearchInput";
+import { LocationDialog } from "@/components/LocationDialog";
+
+const categories = [
+  "Birthday",
+  "Anniversary",
+  "Customized",
+  "Occasion",
+  "Relationship",
+  "Desserts",
+];
 
 export default function Hero() {
-  const categories = [
-    "Birthday",
-    "Anniversary",
-    "Customized",
-    "Occasion",
-    "Relationship",
-    "Desserts",
-  ];
-
-  const cities = [
-    { image: "/delhi.webp", name: "Delhi" },
-    { image: "/gurgaon.webp", name: "Gurgaon" },
-    { image: "/noida.webp", name: "Noida" },
-    { image: "/bangalore.webp", name: "Bangalore" },
-    { image: "/hyderabad.webp", name: "Hyderabad" },
-    { image: "/mumbai.webp", name: "Mumbai" },
-  ];
-
-  const otherCities = [
-    "Ghaziabad",
-    "Kolkata",
-    "Sunderabad",
-    "Coimbatore",
-    "Kanpur",
-    "Jaipur",
-    "Chennai",
-    "Jalandhar",
-    "Faridabad",
-    "Patna",
-    "Ranchi",
-    "Ludhiana",
-    "Lucknow",
-    "Pune",
-    "Dehradun",
-    "Chandigarh",
-    "Mohali",
-    "Panchkula",
-    "Ahmedabad",
-    "Surat",
-    "Amritsar",
-    "Bhopal",
-    "Haridwar",
-    "Noida",
-    "Vijayawada",
-    "Agra",
-    "Panipat",
-    "Karnal",
-  ];
-
   return (
-    <main className="relative flex flex-col items-center w-full min-h-screen overflow-hidden  bg-[#fff3d3]">
-      {/* Background Images */}
-        <div className="absolute -translate-y-1/2 top-[60%] md:top-1/2 rotate-2 left-[-8%] w-[80%] sm:w-[60%] md:w-1/3">
-          <ProgressiveImage
+    <main className="select-none relative flex flex-col items-center w-full min-h-screen overflow-hidden bg-[#fff3d3] pt-[80px] md:pt-[100px]">
+      {/* Background Images - Improved Responsiveness and Positioning */}
+      <div className="absolute inset-0 h-full w-full overflow-hidden"> {/* Container for background images */}
+        <div className="absolute top-1/4 left-0 w-1/2 md:w-1/3 h-auto transform -rotate-6 transition-transform duration-500 hover:rotate-0 opacity-60 md:opacity-80">
+          {/* <ProgressiveImage
             src="/cake.png"
             placeholder="/placeholder-image1.png"
             alt="Cake illustration"
-            width={400}
-            height={400}
-            className="w-full h-auto"
+            width={500}
+            height={500}
+            className="w-full h-auto object-contain md:object-cover filter drop-shadow-xl" // object-contain for smaller screens, object-cover for larger
+          /> */}
+          <ProgressiveImage
+            src="/cake.png"
+            placeholder="/placeholder-image1.png"
+            alt="My Image"
+            width={500} // Set the desired width (or leave it undefined for natural width)
+            height={300} // Set the desired height (or leave it undefined for natural height)
+            containerClassName="my-image-container" // Add any custom container classes
+            imageClassName="rounded-lg" // Add any custom image classes
+            objectFit="contain" // Override default objectFit if needed
+            objectPosition="top center" // Override default objectPosition if needed
+            priority // Add priority prop if needed
           />
         </div>
-        <div className="absolute -translate-y-1/2  top-[30%] md:top-1/2 right-[-15%] w-[80%] sm:w-[60%] md:w-1/3">
-          <ProgressiveImage
+        <div className="absolute top-1/2 -translate-y-2/3 right-0 w-1/2 md:w-1/3 h-auto transform rotate-6 transition-transform duration-500 hover:rotate-0 opacity-60 md:opacity-80">
+          {/* <ProgressiveImage
             src="/cake3.png"
             placeholder="/placeholder-image2.png"
             alt="Decorated cake"
-            width={400}
-            height={400}
-            className="w-full h-auto"
+            width={500}
+            height={500}
+            className="w-full h-auto object-contain md:object-cover filter drop-shadow-xl" // object-contain for smaller screens, object-cover for larger
+          /> */}
+          <ProgressiveImage
+            src="/cake3.png"
+            placeholder="/placeholder-image2.png"
+            alt="My Image"
+            width={500} // Set the desired width (or leave it undefined for natural width)
+            height={300} // Set the desired height (or leave it undefined for natural height)
+            containerClassName="my-image-container" // Add any custom container classes
+            imageClassName="rounded-lg hidden md:block" // Add any custom image classes
+            objectFit="contain" // Override default objectFit if needed
+            objectPosition="top center" // Override default objectPosition if needed
+            priority // Add priority prop if needed
           />
         </div>
+      </div>
 
-      {/* Main Content */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 w-full max-w-5xl  md:pt-32 text-center ">
-        <h1 className={`text-3xl font-bold text-red-600 md:text-4xl ${fonts.className}`}>Freshly Baked, Always Loved.</h1>
-        <p className="pt-2 text-base font-bold text-gray-700 sm:pt-3 md:text-xl">
-          Order Your Favorite Cake Today!
-        </p>
 
-        {/* Search & Location */}
-        <div className="flex flex-col items-center gap-3 px-4 pt-4 mx-auto sm:flex-row sm:gap-4 sm:pt-6 w-full max-w-3xl">
-          <Dialog>
-            <DialogTrigger className="flex items-center justify-center gap-2 px-3 py-2 font-semibold text-white bg-orange-500 rounded-lg shadow-md sm:py-3 md:px-3 hover:bg-orange-600 w-full sm:w-1/2 md:w-1/3">
-              <FaLocationDot size={20} /> Choose Location
-            </DialogTrigger>
-            <DialogContent className="p-4 overflow-y-auto rounded-lg shadow-xl sm:p-6 max-w-2xl max-h-[90vh]">
-              <DialogHeader className="text-center">
-                <DialogTitle className="text-xl font-bold sm:text-2xl">Select Your City</DialogTitle>
-                <div className="mt-3 text-center">
-                  <p className="mb-4 text-sm font-medium text-gray-700">
-                    Enjoy 2-Hour Cake Delivery 🚀
-                  </p>
-
-                  <h3 className="mb-2 text-lg font-semibold">Popular Cities</h3>
-                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
-                    {cities.map((item, index) => (
-                      <Link
-                        key={index}
-                        href="/"
-                        aria-label={`Order cakes in ${item.name}`}
-                        className="flex flex-col items-center p-2 transition bg-gray-100 rounded-lg shadow-md sm:p-3 hover:shadow-lg hover:scale-105"
-                      >
-                        <Image
-                          className="object-cover w-14 h-14 rounded-md sm:w-[70px] sm:h-[70px]"
-                          width={70}
-                          height={70}
-                          src={item.image}
-                          alt={`${item.name} city`}
-                        />
-                        <span className="mt-1 text-sm font-medium sm:mt-2">{item.name}</span>
-                      </Link>
-                    ))}
-                  </div>
-
-                  <h3 className="mt-4 text-lg font-semibold sm:mt-5">Other Cities</h3>
-                  <div className="grid grid-cols-2 gap-2 mt-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                    {otherCities.map((item, index) => (
-                      <Link
-                        key={index}
-                        href="/"
-                        className="p-1 text-sm font-medium text-gray-700 transition hover:text-orange-500"
-                      >
-                        {item}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-
-          <div className="flex items-center w-full h px-3 py-2 bg-white rounded-lg sm:mt-0 sm:w-2/3">
-            <CiSearch size={20} className="text-gray-500" />
-            <input
-              type="text"
-              className="w-full px-2 py-1 text-sm focus:outline-none md:px-3 sm:text-base"
-              placeholder="Search for cakes, flavors & more"
-              aria-label="Search cakes"
-            />
-          </div>
+      {/* Main Content - Improved Responsiveness and Alignment */}
+      <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="text-center space-y-4 md:space-y-6 mb-8 md:mb-12">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text bg-gradient-to-r text-transparent from-red-500/80 to-red-700 tracking-tight ">
+            Freshly Baked, Always Loved.
+          </h1>
+          <p className="text-lg md:text-xl font-medium text-gray-700 max-w-2xl mx-auto">
+            Order Your Favorite Cake Today!
+          </p>
         </div>
 
-        {/* Categories */}
-        <div className="flex flex-wrap justify-center gap-2 px-4 py-4 sm:py-6 md:gap-3">
+        {/* Search & Location - Improved Layout */}
+        <div className="w-full max-w-3xl mx-auto flex flex-col sm:flex-row gap-4 px-4 mb-8"> {/* Flex column on small screens, row on larger */}
+          <LocationDialog className="w-full sm:w-auto" /> {/* Add className for width control */}
+          <SearchInput className="w-full sm:w-auto" /> {/* Add className for width control */}
+        </div>
+
+        {/* Categories - Improved Styling and Responsiveness */}
+        <div className="flex flex-wrap justify-center gap-3 px-4 mb-8 md:mb-12">
           {categories.map((category, index) => (
             <Link
               key={index}
               href="/"
-              className="px-3 py-1.5 text-xs font-semibold border-2 rounded-full w-28 sm:text-sm bg-cyan-50 hover:bg-red-600 hover:text-white"
+              className="px-4 py-2 text-sm text-center font-semibold border-2 rounded-full min-w-[120px] bg-white/80 backdrop-blur-sm text-gray-800 transition-all duration-300 hover:bg-red-600 hover:text-white hover:scale-105 hover:shadow-lg active:scale-95"
               aria-label={`Explore ${category} cakes`}
             >
               {category}
@@ -172,9 +97,9 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Category Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 w-full sm:max-w-full md:max-w-6xl lg:max-w-full ">
-          <CategoryCards
+        {/* Category Cards - Improved Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-5xl px-4 "> 
+        <CategoryCards
             title="Cakes"
             subTitle="Sweet Delights"
             offer="20"

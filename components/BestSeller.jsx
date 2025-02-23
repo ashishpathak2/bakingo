@@ -1,9 +1,9 @@
-import { fonts } from "@/components/Fonts";
 import Cards from "../components/Cards";
 import Link from "next/link";
 
 export default function BestSeller() {
   const products = [
+    
     {
       image:
         "https://bkmedia.bakingo.com/choco-vanilla-cake0006chva-AAA.jpg?tr=h-265,w-265?tr=w-266,q-70",
@@ -99,7 +99,7 @@ export default function BestSeller() {
       <div className="w-full md:w-5/6 mx-auto md:pt-12 pt-6">
         <div className="flex w-full justify-between pb-4 px-3">
           <h3
-            className={`${fonts.className} text-center md:text-start text-xl md:text-4xl font-semibold text-red-800`}
+            className="text-center md:text-start text-xl md:text-4xl font-semibold text-red-800"
           >
             Our Best Sellers
           </h3>
@@ -112,7 +112,7 @@ export default function BestSeller() {
           </Link>
         </div>
 
-        <div className="flex flex-wrap px-2 md:px-0 gap-x-3 gap-y-4 md:gap-y-9 md:gap-x-7">
+        <div className="flex flex-wrap px-2 py-6 md:px-0 gap-x-3 gap-y-4 md:gap-y-9 md:gap-x-7">
           {products.map((product, index) => {
             return (
               <div

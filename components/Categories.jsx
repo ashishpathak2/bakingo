@@ -10,7 +10,7 @@ export default function Categories() {
   ];
 
   return (
-    <section className="w-full md:w-5/6 mx-auto py-5 px-4">
+    <section className=" w-full md:w-5/6 mx-auto py-5 px-4">
       <h3 className={`pb-3 pt-5 md:pt-12 md:pb-6 text-center lg:text-start text-xl md:text-4xl font-semibold text-red-800 ${fonts.className}`}>
         Order Our Best Bakery Options
       </h3>
